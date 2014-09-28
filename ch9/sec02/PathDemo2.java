@@ -28,9 +28,9 @@ public class PathDemo2 {
 
         // Absolute and relative path
         Path absolute = Paths.get("/", "Users", "maxim");
-        System.out.println(absolute);
-        Path relative = Paths.get("java8-impatient-book", "ch9", "ch9.iml");
-        System.out.println(relative);
+        System.out.printf("\nAbsolute path: %s\n", absolute);
+        Path relative = Paths.get("java8-impatient-book", "ch9", "readme.txt");
+        System.out.printf("Relative path: %s\n", relative);
 
         Path homeDirectory = Paths.get("/Users/maxim");
         System.out.println(homeDirectory);
@@ -39,5 +39,18 @@ public class PathDemo2 {
         Path workPath = Paths.get("/home/cay/myprog/work");
         Path tempPath = workPath.resolveSibling("temp");
         System.out.println(tempPath);
+
+        Path p = Paths.get("/home", "cay", "myprog.properties");
+        System.out.printf("Path: %s; parent: %s; file: %s\n", p, p.getParent(), p.getFileName());
+        System.out.printf("Root path: %s; root file: %s\n", p.getRoot(), p.getFileName().getRoot());
+        System.out.println(p.getFileSystem());
+
+        System.out.println("\nIterate by path " + workPath);
+        for (Path path1 : workPath) {
+            System.out.println(path1);
+        }
+
+        System.out.println("\nForeach lambda for path " + workPath);
+        workPath.forEach(System.out::println);
     }
 }
