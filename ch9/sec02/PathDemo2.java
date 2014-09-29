@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created by maxim on 25.09.14.
+ * @author Maxim Ivanchenko
  */
 public class PathDemo2 {
 
